@@ -1,0 +1,42 @@
+.container {
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--contextual-colors-white);
+  cursor: pointer;
+  Button {
+    fill: var(--contextual-colors-light);
+  }
+
+  &:hover {
+    .initials {
+      background: var(--system-colors-primary-2);
+      fill: var(--system-colors-primary-2);
+    }
+    Button {
+      fill: var(--contextual-colors-white);
+    }
+  }
+}
+
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--system-colors-primary);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1px;
+  fill: var(--system-colors-primary);
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}

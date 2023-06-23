@@ -1,0 +1,49 @@
+.btn {
+  display: flex;
+  align-items: center;
+  color: var(--contextual-colors-white);
+  font-size: 16px;
+  font-family: 'Exo 2';
+  font-weight: 600;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: var(--system-colors-secondary);
+    color: var(--contextual-colors-light);
+    .icon > svg {
+      fill: var(--contextual-colors-light);
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.primary {
+  background-color: var(--system-colors-primary);
+  color: var(--contextual-colors-white);
+
+  &:hover:not(:disabled) {
+    background-color: var(--system-colors-primary-2);
+  }
+}
+
+.secondary {
+  background-color: var(--background-colors-graphite);
+  color: var(--contextual-colors-white);
+
+  &:hover:not(:disabled) {
+    color: var(--contextual-colors-light);
+  }
+}
+
+.iconButton {
+  background: inherit;
+}
