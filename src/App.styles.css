@@ -1,0 +1,11 @@
+:root {
+  --text-color: #3d405b;
+}
+
+body {
+  color: var(--text-color);
+}
+
+h1 {
+  margin: auto;
+}
