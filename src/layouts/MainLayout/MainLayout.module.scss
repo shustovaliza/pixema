@@ -1,15 +1,25 @@
 .container {
-  --max-content-width: 1920px;
+  --max-content-width: 1120px;
   min-height: 100vh;
   min-height: 100dvh;
-}
 
-.contentAndMenuWrap {
-  margin-top: 56px;
-  display: flex;
+  header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+
+  aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
 
   main {
-    max-width: var(--max-content-width);
+    margin-top: 140px;
+    box-sizing: border-box;
+    padding-left: 250px;
+    padding-right: 62px;
     width: 100%;
   }
 }

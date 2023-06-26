@@ -9,12 +9,10 @@ export const MainLayout = () => {
   return (
     <div className={layoutStyles.container}>
       <Header />
-      <div className={layoutStyles.contentAndMenuWrap}>
-        <Menu />
-        <main>
-          <Outlet />
-        </main>
-      </div>
+      <Menu />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

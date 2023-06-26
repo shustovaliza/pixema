@@ -19,8 +19,8 @@ interface FetchMoviesResponse {
 }
 
 interface FetchMoviesPayload {
-  perPage: number;
-  page: number;
+  perPage?: number;
+  page?: number;
   order?: string;
   type?: string;
   genre?: string;

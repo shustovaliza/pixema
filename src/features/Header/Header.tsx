@@ -6,12 +6,12 @@ import { UserPanel } from './UserPanel/UserPanel';
 
 export const Header = () => {
   return (
-    <div className={headerStyles.container}>
+    <header className={headerStyles.container}>
       <div className={headerStyles.logoWrap}>
         <Logo />
       </div>
       <SearchBar />
       <UserPanel />
-    </div>
+    </header>
   );
 };

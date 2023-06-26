@@ -6,7 +6,7 @@ import menuStyles from './Menu.module.scss';
 
 export const Menu = () => {
   return (
-    <div className={menuStyles.container}>
+    <aside className={menuStyles.container}>
       <nav className={menuStyles.linksWrap}>
         {Navlinks().map((link) => (
           <NavLink
@@ -19,6 +19,6 @@ export const Menu = () => {
         ))}
       </nav>
       <p>© All Rights Reserved</p>
-    </div>
+    </aside>
   );
 };
