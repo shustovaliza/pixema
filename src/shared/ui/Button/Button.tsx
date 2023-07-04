@@ -20,11 +20,14 @@ export const Button = ({
   return (
     <button
       {...passThroughProperties}
-      className={classNames({
+      className={`${passThroughProperties.className || ''} ${classNames({
         [buttonStyles.btn]: true,
         [buttonStyles[appearance]]: true
-      })}
-      style={shouldFitContainer ? { width: '100%' } : undefined}
+      })}`}
+      style={{
+        ...passThroughProperties.style,
+        width: shouldFitContainer ? '100%' : passThroughProperties.style?.width
+      }}
     >
       {text}
       {icon && <div className={buttonStyles.icon}>{icon}</div>}

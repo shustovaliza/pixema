@@ -9,17 +9,10 @@
     left: 0px;
   }
 
-  aside {
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
-
   main {
     margin-top: 140px;
     box-sizing: border-box;
-    padding-left: 250px;
-    padding-right: 62px;
     width: 100%;
+    padding: 0 40px;
   }
 }

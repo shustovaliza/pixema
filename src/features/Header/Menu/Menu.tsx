@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 
-import { Navlinks } from '~/features/Menu/Menu.constants';
+import { Navlinks } from '~/features/Header/Menu/Menu.constants';
 
 import menuStyles from './Menu.module.scss';
 
 export const Menu = () => {
   return (
-    <aside className={menuStyles.container}>
+    <div className={menuStyles.container}>
       <nav className={menuStyles.linksWrap}>
         {Navlinks().map((link) => (
           <NavLink
@@ -18,7 +18,6 @@ export const Menu = () => {
           </NavLink>
         ))}
       </nav>
-      <p>© All Rights Reserved</p>
-    </aside>
+    </div>
   );
 };
