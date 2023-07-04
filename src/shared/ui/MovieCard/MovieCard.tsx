@@ -1,14 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import { type Movie } from '~/entities/movie';
-import { dateFormatter, urlFormatter } from '~/shared/utils/utils';
+import { dateFormatter } from '~/shared/utils/utils';
 
 import movieCardStyles from './MovieCard.module.scss';
-
-const certainMovieURL = (name: Movie['name']) => {
-  const formattedMovieName = urlFormatter(name);
-  return `/movies/${formattedMovieName}`;
-};
 
 export const MovieCard = ({ movie }: { movie: Movie }) => {
   return (
@@ -20,7 +15,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
         />
       </div>
       <div className={movieCardStyles.text}>
-        <Link to={certainMovieURL(movie.name)}>{movie.name}</Link>
+        <Link to={`/movie/${movie.id}`}>{movie.name}</Link>
         <p>{dateFormatter(movie.release_date)}</p>
       </div>
     </div>

@@ -1,23 +1,28 @@
 .container {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    Button {
-        width: 161px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 40px;
-        margin-top: 64px;
-    }
+  Button {
+    width: 161px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    margin-top: 64px;
+  }
 }
 
 .cardsWrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.error {
+  font-size: 22px;
+  color: var(--contextual-colors-white);
 }

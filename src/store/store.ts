@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { moviesSlice } from './movies/movies.slice';
+import { baseApi } from './api';
 
 export const store = configureStore({
-  reducer: {
-    [moviesSlice.name]: moviesSlice.reducer
-  }
+  reducer: { [baseApi.reducerPath]: baseApi.reducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(baseApi.middleware),
+  devTools: import.meta.env.DEV
 });
