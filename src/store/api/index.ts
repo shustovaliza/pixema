@@ -9,7 +9,7 @@ export const baseApi = createApi({
     prepareHeaders: (headers) => {
       const accessToken = getAccessToken();
       if (accessToken) {
-        headers.set('authorization', `Bearer ${accessToken}`);
+        headers.set('X-API-KEY', `${accessToken}`);
       }
       return headers;
     }

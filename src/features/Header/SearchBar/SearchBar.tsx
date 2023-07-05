@@ -12,7 +12,7 @@ export const SearchBar = () => {
         event.preventDefault();
       }}
     >
-      <input placeholder="Search" />
+      <input placeholder="Поиск" />
       <Button
         icon={<Filter />}
         appearance={ButtonAppearance.IconButton}

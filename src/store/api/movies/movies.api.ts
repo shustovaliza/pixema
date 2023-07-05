@@ -3,34 +3,17 @@ import { type Movie } from '~/entities/movie';
 import { baseApi } from '..';
 
 interface FetchMoviesResponse {
-  status: string;
-  pagination: {
-    current_page: number;
-    from: number;
-    to: number;
-    per_page: number;
-    last_page: number;
-    total: number;
-    data: Movie[];
-  };
+  docs: Movie[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
 }
 
 interface FetchMoviesPayload {
-  perPage?: number;
   page?: number;
-  order?: string;
-  type?: string;
-  genre?: string;
-  released?: string;
-  runtime?: string;
-  score?: string;
-  language?: string;
-  certification?: string;
-  country?: string;
-  /* eslint-disable-next-line @typescript-eslint/naming-convention -- The server needs this name */
-  onlyStreamable?: boolean;
-  /* eslint-disable-next-line @typescript-eslint/naming-convention -- The server needs this name */
-  includeAdult?: boolean;
+  limit?: number;
+  year?: number;
 }
 
 export const moviesApi = baseApi.injectEndpoints({
@@ -38,13 +21,22 @@ export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getMovies: build.query<FetchMoviesResponse, FetchMoviesPayload>({
       query: (payload: FetchMoviesPayload) => ({
-        url: `titles`,
+        url: `v1.3/movie`,
         params: payload
-      })
+      }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.docs.push(...newItems.docs);
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      }
     }),
     getMovie: build.query<Movie, { id: string }>({
       query: ({ id }) => ({
-        url: `titles/${id}`
+        url: `v1.3/movie/${id}`
       })
     })
   })

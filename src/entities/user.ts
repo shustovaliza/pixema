@@ -1,8 +1,10 @@
 export interface User {
+  username: string;
   id: number;
-  display_name: string;
-  avatar: string;
-  first_name: string;
-  last_name: string;
-  gender: string;
+  email: string;
+}
+
+export interface JWTToken {
+  access: string;
+  refresh: string;
 }
