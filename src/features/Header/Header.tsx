@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ReactComponent as Logo } from '~/assets/icons/pixema.svg';
 
 import headerStyles from './Header.module.scss';
+import { Menu } from './Menu/Menu';
 import { MenuButton } from './Menu/MenuButton';
 import { SearchBar } from './SearchBar/SearchBar';
 import { UserPanel } from './UserPanel/UserPanel';
@@ -31,6 +32,7 @@ export const Header = () => {
         onClick={toggleMenu}
         isOpen={isOpen}
       />
+      <Menu isOpen={isOpen} />
     </header>
   );
 };

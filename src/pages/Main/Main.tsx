@@ -12,11 +12,10 @@ export const MainPage = () => {
   const page = +(searchParameters.get('page') || 1);
   const { data, status } = useGetMoviesQuery({ page: page, limit: 12 });
 
-  return (
+  return status === 'rejected' ? (
+    <div className={mainPageStyles.error}>Oops! Something went wrong!</div>
+  ) : (
     <div className={mainPageStyles.container}>
-      {status === 'rejected' && (
-        <div className={mainPageStyles.error}>Oops! Something went wrong!</div>
-      )}
       <div className={mainPageStyles.cardsWrap}>
         {data &&
           data.docs.map((movie) => (
