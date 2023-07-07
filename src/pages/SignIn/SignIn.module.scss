@@ -1,0 +1,30 @@
+.container {
+  width: 100vw;
+  max-width: var(--max-content-width);
+  height: 100vh;
+  background-image: url(~/assets/icons/Frame1439.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  footer {
+    color: var(--contextual-colors-white);
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+.logo {
+  box-sizing: border-box;
+  padding-top: 48px;
+  padding-left: 62px;
+}
+
+.signInFormWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

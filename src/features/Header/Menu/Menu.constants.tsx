@@ -15,22 +15,22 @@ export const Navlinks = (): Navlink[] => {
   return [
     {
       path: '/',
-      title: 'Home',
+      title: 'Главная',
       img: <HomeIcon />
     },
     {
       path: '/trends',
-      title: 'Trends',
+      title: 'Тренды',
       img: <TrendsIcon />
     },
     {
       path: '/favorites',
-      title: 'Favorites',
+      title: 'Моё',
       img: <FavoritesIcon />
     },
     {
       path: '/settings',
-      title: 'Settings',
+      title: 'Настройки',
       img: <SettingsIcon />
     }
   ];

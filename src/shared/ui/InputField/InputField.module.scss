@@ -1,0 +1,36 @@
+.container {
+  label {
+    font-weight: 600;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input {
+    appearance: none;
+    display: block;
+    font-family: 'Exo 2';
+    line-height: 24px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    background: var(--background-colors-graphite);
+    color: var(--contextual-colors-white);
+    box-sizing: border-box;
+
+    &:focus {
+      outline: 2px solid var(--system-colors-primary);
+    }
+
+    &[data-valid='false'] {
+      border: solid var(--contextual-colors-error);
+    }
+  }
+}
+
+.error {
+  color: var(--contextual-colors-error);
+}

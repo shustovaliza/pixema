@@ -7,3 +7,10 @@ export function dateFormatter(date: string) {
   };
   return newDate.toLocaleString('en-US', options);
 }
+
+export const isItOnTheMainPage = () => {
+  return (
+    window.location.pathname === '/' ||
+    window.location.pathname.includes('?page=')
+  );
+};

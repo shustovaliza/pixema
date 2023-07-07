@@ -21,7 +21,7 @@ export const Menu = ({ isOpen }: { isOpen: boolean }) => {
           </NavLink>
         ))}
       </nav>
-      <p>© All Rights Reserved</p>
+      <p>© Все права защищены</p>
     </div>
   );
 };

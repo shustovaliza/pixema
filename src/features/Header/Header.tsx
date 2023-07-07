@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-
-import { ReactComponent as Logo } from '~/assets/icons/pixema.svg';
+import { Logo } from '~/shared/ui/Logo/Logo';
 
 import headerStyles from './Header.module.scss';
 import { Menu } from './Menu/Menu';
@@ -16,16 +14,9 @@ export const Header = () => {
     setIsOpen((hasBeenOpened) => !hasBeenOpened);
   };
 
-  const navigate = useNavigate();
-
   return (
     <header className={headerStyles.container}>
-      <div
-        className={headerStyles.logoWrap}
-        onClick={() => navigate('/')}
-      >
-        <Logo />
-      </div>
+      <Logo />
       <SearchBar />
       <UserPanel />
       <MenuButton

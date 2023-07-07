@@ -32,7 +32,8 @@ export const moviesApi = baseApi.injectEndpoints({
       },
       forceRefetch({ currentArg, previousArg }) {
         return currentArg !== previousArg;
-      }
+      },
+      keepUnusedDataFor: 0
     }),
     getMovie: build.query<Movie, { id: string }>({
       query: ({ id }) => ({
