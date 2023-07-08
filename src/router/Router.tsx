@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { AuthLayout } from '~/layouts/AuthLayout/AuthLayout';
 import { MainLayout } from '~/layouts/MainLayout/MainLayout';
 import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
@@ -17,7 +18,10 @@ const routerSchema = createBrowserRouter([
       }
     ]
   },
-  { path: '/sign-in', Component: SignInPage },
+  {
+    Component: AuthLayout,
+    children: [{ path: '/sign-in', Component: SignInPage }]
+  },
   {
     path: '*',
     element: <div>Not found</div>
