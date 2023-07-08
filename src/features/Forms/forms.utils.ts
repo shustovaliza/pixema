@@ -1,4 +1,4 @@
-import { type FormErrors, type FormState } from './form.types';
+import { type FormErrors, type FormState } from './forms.types';
 
 export function getDefaultFormValues(): FormState {
   return {
@@ -25,7 +25,7 @@ function isValidPassword(password: FormState['password']): boolean {
   return password.length >= MIN_PASSWORD_LENGTH;
 }
 
-export function getFormErrors(formValues: FormState): FormErrors {
+export function getFormErrorsForSignUp(formValues: FormState): FormErrors {
   const errors: FormErrors = {};
 
   if (!isValidName(formValues.username)) {
@@ -33,7 +33,7 @@ export function getFormErrors(formValues: FormState): FormErrors {
   }
 
   if (!isValidEmail(formValues.email)) {
-    errors.email = 'Email должен содержать символ @';
+    errors.email = 'Пример email: test@mail.ru';
   }
 
   if (!isValidPassword(formValues.password)) {
@@ -42,6 +42,20 @@ export function getFormErrors(formValues: FormState): FormErrors {
 
   if (formValues.password !== formValues.confirmPassword) {
     errors.confirmPassword = 'Пароль не совпадает';
+  }
+
+  return errors;
+}
+
+export function getFormErrorsForSignIn(formValues: FormState): FormErrors {
+  const errors: FormErrors = {};
+
+  if (!isValidEmail(formValues.email)) {
+    errors.email = 'Пример email: test@mail.ru';
+  }
+
+  if (!isValidPassword(formValues.password)) {
+    errors.password = 'Пароль должен содержать больше четырех символов';
   }
 
   return errors;

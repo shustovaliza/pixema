@@ -6,29 +6,12 @@ import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
 import { InputField } from '~/shared/ui/InputField/InputField';
 
-import FormStyles from './Form.module.scss';
-import { type FormField, type FormState } from './form.types';
-import { getDefaultFormValues, getFormErrors } from './form.utils';
+import { signUpFormSchema } from './SignUpForm.schema';
+import FormStyles from '../forms.module.scss';
+import { type FormState } from '../forms.types';
+import { getDefaultFormValues, getFormErrorsForSignUp } from '../forms.utils';
 
-export const Form = ({
-  formSchema,
-  header,
-  buttonText,
-  textBeforeLink,
-  link,
-  linkText,
-  resetPasswordLink,
-  resetPasswordLinkText
-}: {
-  formSchema: FormField[];
-  header: string;
-  buttonText: string;
-  textBeforeLink: string;
-  link: string;
-  linkText: string;
-  resetPasswordLink?: string;
-  resetPasswordLinkText?: string;
-}) => {
+export const SignUpForm = () => {
   const [formState, setFormState] = useState<FormState>(getDefaultFormValues);
   const [touchedFields, setTouchedFields] = useState<Set<string>>(
     () => new Set()
@@ -44,13 +27,21 @@ export const Form = ({
     );
   }, []);
 
-  const formErrors = useMemo(() => getFormErrors(formState), [formState]);
+  const formErrors = useMemo(
+    () => getFormErrorsForSignUp(formState),
+    [formState]
+  );
 
   return (
-    <form className={FormStyles.form}>
-      <h1>{`${header}`}</h1>
+    <form
+      className={FormStyles.form}
+      onSubmit={(event) => {
+        event.preventDefault();
+      }}
+    >
+      <h1>{'Регистрация'}</h1>
       <div className={FormStyles.inputsWrap}>
-        {formSchema.map((field) => (
+        {signUpFormSchema.map((field) => (
           <InputField
             {...field}
             key={field.name}
@@ -64,15 +55,12 @@ export const Form = ({
             shouldFitContainer
           ></InputField>
         ))}
-        {resetPasswordLink && resetPasswordLinkText ? (
-          <Link to={`${resetPasswordLink}`}>{`${resetPasswordLinkText}`}</Link>
-        ) : null}
       </div>
       <Button
         appearance={ButtonAppearance.Primary}
         type="submit"
         shouldFitContainer
-        text={`${buttonText}`}
+        text={'Регистрация'}
         disabled={
           isLoading ||
           touchedFields.size === 0 ||
@@ -80,8 +68,8 @@ export const Form = ({
         }
       ></Button>
       <span className={FormStyles.link}>
-        {`${textBeforeLink}`}
-        <Link to={`${link}`}>{`${linkText}`}</Link>
+        {'У вас уже есть аккаунт? '}
+        <Link to={'/sign-in'}>{'Войти'}</Link>
       </span>
     </form>
   );
