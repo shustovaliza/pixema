@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
 import { MovieCard } from '~/shared/ui/MovieCard/MovieCard';
-import { useGetMoviesQuery } from '~/store/api/movies/movies.api';
+import { useGetMoviesQuery } from '~/store/api/moviesApi/movies.api.injections';
 
 import mainPageStyles from './Main.module.scss';
 

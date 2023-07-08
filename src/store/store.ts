@@ -1,10 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { baseApi } from './api';
+import { authApi } from './api/authApi/auth.api';
+import { moviesApi } from './api/moviesApi/movies.api';
 
 export const store = configureStore({
-  reducer: { [baseApi.reducerPath]: baseApi.reducer },
+  reducer: {
+    [moviesApi.reducerPath]: moviesApi.reducer,
+    [authApi.reducerPath]: authApi.reducer
+  },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(baseApi.middleware),
+    getDefaultMiddleware().prepend(moviesApi.middleware, authApi.middleware),
   devTools: import.meta.env.DEV
 });

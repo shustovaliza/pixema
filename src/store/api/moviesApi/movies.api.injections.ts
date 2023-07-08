@@ -1,6 +1,6 @@
 import { type Movie } from '~/entities/movie';
 
-import { baseApi } from '..';
+import { moviesApi as moviesApi } from './movies.api';
 
 interface FetchMoviesResponse {
   docs: Movie[];
@@ -16,7 +16,7 @@ interface FetchMoviesPayload {
   year?: number;
 }
 
-export const moviesApi = baseApi.injectEndpoints({
+export const moviesApiInjections = moviesApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
     getMovies: build.query<FetchMoviesResponse, FetchMoviesPayload>({
@@ -43,4 +43,4 @@ export const moviesApi = baseApi.injectEndpoints({
   })
 });
 
-export const { useGetMoviesQuery, useGetMovieQuery } = moviesApi;
+export const { useGetMoviesQuery, useGetMovieQuery } = moviesApiInjections;

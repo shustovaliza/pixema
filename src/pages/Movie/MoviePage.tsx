@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { useGetMovieQuery } from '~/store/api/movies/movies.api';
+import { useGetMovieQuery } from '~/store/api/moviesApi/movies.api.injections';
 
 import moviePageStyles from './MoviePage.module.scss';
 
