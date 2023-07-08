@@ -5,6 +5,7 @@ import { MainLayout } from '~/layouts/MainLayout/MainLayout';
 import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
 import { SignInPage } from '~/pages/SignIn/SignIn';
+import { SignUpPage } from '~/pages/SignUp/SignUp';
 
 const routerSchema = createBrowserRouter([
   {
@@ -20,7 +21,10 @@ const routerSchema = createBrowserRouter([
   },
   {
     Component: AuthLayout,
-    children: [{ path: '/sign-in', Component: SignInPage }]
+    children: [
+      { path: '/sign-in', Component: SignInPage },
+      { path: '/sign-up', Component: SignUpPage }
+    ]
   },
   {
     path: '*',
