@@ -1,0 +1,23 @@
+.container {
+    width: 35%;
+    box-sizing: border-box;
+    padding: 40px;
+    border-radius: 10px;
+    background: var(--background-colors-dark);
+    color: var(--contextual-colors-white);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 36px;
+    }
+
+    Button {
+        height: 56px;
+    }
+}

@@ -14,12 +14,13 @@ export interface CreateUserPayload {
 export const authApiInjections = authApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
-    createUser: build.mutation<Promise<CreateUserResponse>, CreateUserPayload>({
+    createUser: build.mutation<CreateUserResponse, CreateUserPayload>({
       query: (payload) => ({
         url: 'auth/users/',
         method: 'POST',
         body: payload
-      })
+      }),
+      transformErrorResponse: (response) => response.data
     })
   })
 });

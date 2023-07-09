@@ -45,3 +45,9 @@
         color: var(--system-colors-primary);
     }
 }
+
+.errorMessage {
+    p {
+        margin: 0;
+    }
+}

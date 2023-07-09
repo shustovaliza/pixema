@@ -5,19 +5,26 @@ import { Link } from 'react-router-dom';
 import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
 import { InputField } from '~/shared/ui/InputField/InputField';
+import {
+  type CreateUserResponse,
+  useCreateUserMutation
+} from '~/store/api/authApi/auth.api.injections';
 
 import { signUpFormSchema } from './SignUpForm.schema';
 import FormStyles from '../forms.module.scss';
-import { type FormState } from '../forms.types';
+import { type ErrorMessage, type FormState } from '../forms.types';
 import { getDefaultFormValues, getFormErrorsForSignUp } from '../forms.utils';
 
-export const SignUpForm = () => {
+export const SignUpForm = ({
+  onCreateUser
+}: {
+  onCreateUser: (user: CreateUserResponse) => void;
+}) => {
   const [formState, setFormState] = useState<FormState>(getDefaultFormValues);
   const [touchedFields, setTouchedFields] = useState<Set<string>>(
     () => new Set()
   );
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState<ErrorMessage>(null);
 
   const updateFormValues = useCallback((newFormValue: Partial<FormState>) => {
     setFormState((previousFields) => ({ ...previousFields, ...newFormValue }));
@@ -32,14 +39,34 @@ export const SignUpForm = () => {
     [formState]
   );
 
+  const [createUser, { isLoading }] = useCreateUserMutation();
+
   return (
     <form
       className={FormStyles.form}
       onSubmit={(event) => {
         event.preventDefault();
+
+        const { ...user } = formState;
+        createUser(user)
+          .unwrap()
+          .then((data) => {
+            onCreateUser(data);
+          })
+          .catch((error: ErrorMessage) => {
+            console.error(error);
+            setErrorMessage(error);
+          });
       }}
     >
       <h1>{'Регистрация'}</h1>
+      {errorMessage ? (
+        <div className={FormStyles.errorMessage}>
+          {Object.values(errorMessage).map((error) => {
+            return <p key={error[0]}>{error}</p>;
+          })}
+        </div>
+      ) : null}
       <div className={FormStyles.inputsWrap}>
         {signUpFormSchema.map((field) => (
           <InputField
