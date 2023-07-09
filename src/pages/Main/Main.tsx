@@ -13,7 +13,7 @@ export const MainPage = () => {
   const { data, status } = useGetMoviesQuery({ page: page, limit: 12 });
 
   return status === 'rejected' ? (
-    <div className={mainPageStyles.error}>Oops! Something went wrong!</div>
+    <div className={mainPageStyles.error}>Упс! Что-то пошло не так!</div>
   ) : (
     <div className={mainPageStyles.container}>
       <div className={mainPageStyles.cardsWrap}>
@@ -27,7 +27,7 @@ export const MainPage = () => {
       </div>
       <Button
         disabled={status === 'pending'}
-        text={status === 'pending' ? 'Loading...' : 'Show more'}
+        text={status === 'pending' ? 'Загрузка...' : 'Показать больше'}
         appearance={ButtonAppearance.Secondary}
         onClick={() => {
           setSearchParameters((old) => {

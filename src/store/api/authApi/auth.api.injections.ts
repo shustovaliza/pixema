@@ -1,16 +1,11 @@
 import { authApi } from './auth.api';
+import {
+  type ActivateEmailPayload,
+  type CreateUserPayload,
+  type CreateUserResponse,
+  type ResendEmailPayload
+} from './auth.api.types';
 
-export interface CreateUserResponse {
-  username: string;
-  email: string;
-  id: number;
-}
-
-export interface CreateUserPayload {
-  username: string;
-  password: string;
-  email: string;
-}
 export const authApiInjections = authApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
@@ -21,8 +16,29 @@ export const authApiInjections = authApi.injectEndpoints({
         body: payload
       }),
       transformErrorResponse: (response) => response.data
+    }),
+    activateEmail: build.mutation<void, ActivateEmailPayload>({
+      query: (payload) => ({
+        url: 'auth/users/activation/',
+        method: 'POST',
+        body: payload
+      })
+    }),
+    resendActivationEmail: build.mutation<
+      ResendEmailPayload,
+      ResendEmailPayload
+    >({
+      query: (payload) => ({
+        url: 'auth/users/resend_activation/',
+        method: 'POST',
+        body: payload
+      })
     })
   })
 });
 
-export const { useCreateUserMutation } = authApiInjections;
+export const {
+  useCreateUserMutation,
+  useActivateEmailMutation,
+  useResendActivationEmailMutation
+} = authApiInjections;

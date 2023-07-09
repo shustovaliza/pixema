@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { AuthLayout } from '~/layouts/AuthLayout/AuthLayout';
 import { MainLayout } from '~/layouts/MainLayout/MainLayout';
+import { EmailConfirmationPage } from '~/pages/EmailConfirmation/EmailConfirmation';
 import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
 import { SignInPage } from '~/pages/SignIn/SignIn';
@@ -23,7 +24,8 @@ const routerSchema = createBrowserRouter([
     Component: AuthLayout,
     children: [
       { path: '/sign-in', Component: SignInPage },
-      { path: '/sign-up', Component: SignUpPage }
+      { path: '/sign-up', Component: SignUpPage },
+      { path: '/activate/:uid/:token', Component: EmailConfirmationPage }
     ]
   },
   {

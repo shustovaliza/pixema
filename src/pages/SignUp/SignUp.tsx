@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { SignUpForm } from '~/features/Forms/SignUpForm/SignUpForm';
 import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
-import { type CreateUserResponse } from '~/store/api/authApi/auth.api.injections';
+import { type CreateUserResponse } from '~/store/api/authApi/auth.api.types';
 
 import signUpStyles from './SignUp.module.scss';
 

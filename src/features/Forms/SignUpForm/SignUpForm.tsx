@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
 import { InputField } from '~/shared/ui/InputField/InputField';
-import {
-  type CreateUserResponse,
-  useCreateUserMutation
-} from '~/store/api/authApi/auth.api.injections';
+import { useCreateUserMutation } from '~/store/api/authApi/auth.api.injections';
+import { type CreateUserResponse } from '~/store/api/authApi/auth.api.types';
 
 import { signUpFormSchema } from './SignUpForm.schema';
 import FormStyles from '../forms.module.scss';

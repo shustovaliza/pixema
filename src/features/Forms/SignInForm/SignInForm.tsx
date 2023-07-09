@@ -16,8 +16,6 @@ export const SignInForm = () => {
   const [touchedFields, setTouchedFields] = useState<Set<string>>(
     () => new Set()
   );
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
   const updateFormValues = useCallback((newFormValue: Partial<FormState>) => {
     setFormState((previousFields) => ({ ...previousFields, ...newFormValue }));
@@ -63,9 +61,7 @@ export const SignInForm = () => {
         shouldFitContainer
         text={'Войти'}
         disabled={
-          isLoading ||
-          touchedFields.size === 0 ||
-          Object.keys(formErrors).length > 0
+          touchedFields.size === 0 || Object.keys(formErrors).length > 0
         }
       ></Button>
       <span className={FormStyles.link}>

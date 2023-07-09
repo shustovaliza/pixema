@@ -60,3 +60,15 @@ export function getFormErrorsForSignIn(formValues: FormState): FormErrors {
 
   return errors;
 }
+
+export function getFormErrorsForResendActivationEmailForm(
+  email: FormState['email']
+): FormErrors['email'] {
+  let error: FormErrors['email'];
+
+  if (!isValidEmail(email)) {
+    error = 'Пример email: test@mail.ru';
+  }
+
+  return error;
+}
