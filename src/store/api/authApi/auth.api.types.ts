@@ -18,3 +18,8 @@ export interface ActivateEmailPayload {
 export interface ResendEmailPayload {
   email: string;
 }
+
+export interface CreateTokenPayload {
+  email: string;
+  password: string;
+}

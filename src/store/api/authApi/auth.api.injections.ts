@@ -1,5 +1,8 @@
+import { type User, type JWTToken } from '~/entities/user';
+
 import { authApi } from './auth.api';
 import {
+  type CreateTokenPayload,
   type ActivateEmailPayload,
   type CreateUserPayload,
   type CreateUserResponse,
@@ -33,6 +36,19 @@ export const authApiInjections = authApi.injectEndpoints({
         method: 'POST',
         body: payload
       })
+    }),
+    createTokens: build.mutation<JWTToken, CreateTokenPayload>({
+      query: (payload) => ({
+        url: 'auth/jwt/create/',
+        method: 'POST',
+        body: payload
+      }),
+      transformErrorResponse: (response) => response.data
+    }),
+    fetchUser: build.query<User, null>({
+      query: () => ({
+        url: 'auth/users/me/'
+      })
     })
   })
 });
@@ -40,5 +56,7 @@ export const authApiInjections = authApi.injectEndpoints({
 export const {
   useCreateUserMutation,
   useActivateEmailMutation,
-  useResendActivationEmailMutation
+  useResendActivationEmailMutation,
+  useCreateTokensMutation,
+  useFetchUserQuery
 } = authApiInjections;

@@ -10,7 +10,7 @@ import { type CreateUserResponse } from '~/store/api/authApi/auth.api.types';
 
 import { signUpFormSchema } from './SignUpForm.schema';
 import FormStyles from '../forms.module.scss';
-import { type ErrorMessage, type FormState } from '../forms.types';
+import { type SignUpErrorMessage, type FormState } from '../forms.types';
 import { getDefaultFormValues, getFormErrorsForSignUp } from '../forms.utils';
 
 export const SignUpForm = ({
@@ -22,7 +22,9 @@ export const SignUpForm = ({
   const [touchedFields, setTouchedFields] = useState<Set<string>>(
     () => new Set()
   );
-  const [errorMessage, setErrorMessage] = useState<ErrorMessage>(null);
+  const [errorMessage, setErrorMessage] = useState<SignUpErrorMessage | null>(
+    null
+  );
 
   const updateFormValues = useCallback((newFormValue: Partial<FormState>) => {
     setFormState((previousFields) => ({ ...previousFields, ...newFormValue }));
@@ -51,7 +53,7 @@ export const SignUpForm = ({
           .then((data) => {
             onCreateUser(data);
           })
-          .catch((error: ErrorMessage) => {
+          .catch((error: SignUpErrorMessage) => {
             console.error(error);
             setErrorMessage(error);
           });

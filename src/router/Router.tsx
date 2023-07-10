@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { AuthLayout } from '~/layouts/AuthLayout/AuthLayout';
@@ -7,6 +9,9 @@ import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
 import { SignInPage } from '~/pages/SignIn/SignIn';
 import { SignUpPage } from '~/pages/SignUp/SignUp';
+import { authApiInjections } from '~/store/api/authApi/auth.api.injections';
+import { selectTokens } from '~/store/slices/authSlice';
+import { useAppDispatch, useAppSelector } from '~/store/store.types';
 
 const routerSchema = createBrowserRouter([
   {
@@ -35,5 +40,20 @@ const routerSchema = createBrowserRouter([
 ]);
 
 export const AppRouter = () => {
+  const tokens = useAppSelector(selectTokens);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (tokens) {
+      const promise = dispatch(
+        authApiInjections.endpoints.fetchUser.initiate(null)
+      );
+
+      return () => {
+        promise.abort();
+      };
+    }
+  }, [tokens, dispatch]);
+
   return <RouterProvider router={routerSchema} />;
 };
