@@ -23,3 +23,7 @@ export interface CreateTokenPayload {
   email: string;
   password: string;
 }
+
+export interface UpdateAccessTokenResponse {
+  access: string;
+}
