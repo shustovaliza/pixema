@@ -5,6 +5,7 @@
   gap: 20px;
   color: var(--contextual-colors-white);
   cursor: pointer;
+  position: relative;
   Button {
     fill: var(--contextual-colors-light);
   }
@@ -39,4 +40,42 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
+}
+
+.userActionsContainer {
+  min-width: 230px;
+  height: 112px;
+  background-color: var(--background-colors-graphite);
+  border-radius: 10px;
+  position: absolute;
+  top: 83%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.4s ease-in-out;
+  z-index: 2;
+
+  &[data-open='true'] {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  Button {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    box-sizing: border-box;
+    padding-left: 15px;
+
+    &:hover {
+      color: var(--system-colors-primary);
+    }
+
+    &:first-child {
+      border-bottom: 1px solid var(--background-colors-dark);
+      border-radius: 10px 10px 0px 0px;
+    }
+  }
 }

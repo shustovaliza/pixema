@@ -27,7 +27,13 @@ const getInitialState = (): AuthState => {
 export const authSlice = createSlice({
   name: 'auth',
   initialState: getInitialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.user = undefined;
+      localStorage.removeItem(localStorageNames.accessToken);
+      localStorage.removeItem(localStorageNames.refreshToken);
+    }
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       authApiInjections.endpoints.createTokens.matchFulfilled,
@@ -48,3 +54,4 @@ export const authSlice = createSlice({
 
 export const selectTokens = (state: RootState) => state.auth.tokens;
 export const selectUser = (state: RootState) => state.auth.user;
+export const { actions: userActions } = authSlice;

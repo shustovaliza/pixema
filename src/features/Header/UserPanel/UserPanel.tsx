@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 import { ReactComponent as ArrowDown } from '~/assets/icons/ArrowDown.svg';
@@ -6,27 +8,62 @@ import { ReactComponent as UserIcon } from '~/assets/icons/user.svg';
 import { type User } from '~/entities/user';
 import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
+import { userActions } from '~/store/slices/authSlice';
+import { useAppDispatch } from '~/store/store.types';
 
 import usernameStyles from './UserPanel.module.scss';
 
 function getInitials(name: User['username']) {
-  const [firstname = '', lastname = ''] = name.split(' ');
-
-  return `${firstname.slice(0, 1)}${lastname.slice(0, 1)}`;
+  return name.slice(0, 1);
 }
 
+const UserActionsPanel = ({ isOpen }: { isOpen: boolean }) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  return (
+    <div
+      className={usernameStyles.userActionsContainer}
+      data-open={isOpen}
+    >
+      <Button
+        appearance={ButtonAppearance.Secondary}
+        text={'Редактировать'}
+        onClick={() => navigate('/settings')}
+      />
+      <Button
+        appearance={ButtonAppearance.Secondary}
+        text={'Выйти'}
+        onClick={() => {
+          dispatch(userActions.logout());
+        }}
+      />
+    </div>
+  );
+};
+
 export const UserPanel = ({ user }: { user?: User }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleActionsPanel = () => {
+    setIsOpen((hasBeenOpened) => !hasBeenOpened);
+  };
+
   const navigate = useNavigate();
   return user ? (
-    <div className={usernameStyles.container}>
-      <div className={usernameStyles.initials}>
-        {getInitials(user.username)}
+    <div>
+      <div
+        className={usernameStyles.container}
+        onClick={toggleActionsPanel}
+      >
+        <div className={usernameStyles.initials}>
+          {getInitials(user.username)}
+        </div>
+        <div className={usernameStyles.name}>{`${user.username}`}</div>
+        <Button
+          appearance={ButtonAppearance.IconButton}
+          icon={<ArrowDown />}
+        />
       </div>
-      <div className={usernameStyles.name}>{`${user.username}`}</div>
-      <Button
-        appearance={ButtonAppearance.IconButton}
-        icon={<ArrowDown />}
-      />
+      <UserActionsPanel isOpen={isOpen} />
     </div>
   ) : (
     <div

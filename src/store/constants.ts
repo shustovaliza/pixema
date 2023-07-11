@@ -2,7 +2,7 @@ export const MOVIES_API_URL = import.meta.env.VITE_MOVIES_API_URL as string;
 export const AUTH_API_URL = import.meta.env.VITE_AUTH_API_URL as string;
 
 export const getAccessToken = () => {
-  return '9B1ZQQ8-6ZFMB27-HHZMKZ1-5Z0S3H5';
+  return 'ZYSDF6P-RR1M2M0-NPCSTNE-XRB3CDR';
 };
 
 export const localStorageNames = {
