@@ -17,8 +17,13 @@ export type FormErrors = Partial<
   Record<keyof Omit<FormState, 'isDirty'>, string>
 >;
 
-export type SignUpErrorMessage = Partial<Record<keyof FormState, string[]>>;
+export type SignUpErrorMessage = Record<keyof FormState, string[]>;
 
 export interface SignInErrorMessage {
   detail: string;
+}
+
+export interface ConfirmResetPasswordErrorMessage {
+  token: string[];
+  new_password: string[];
 }

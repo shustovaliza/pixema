@@ -27,3 +27,13 @@ export interface CreateTokenPayload {
 export interface UpdateAccessTokenResponse {
   access: string;
 }
+
+export interface ResetPasswordPayload {
+  email: string;
+}
+
+export interface ConfirmResetPasswordPayload {
+  uid?: string;
+  token?: string;
+  new_password: string;
+}

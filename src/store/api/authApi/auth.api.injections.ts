@@ -6,7 +6,9 @@ import {
   type ActivateEmailPayload,
   type CreateUserPayload,
   type CreateUserResponse,
-  type ResendEmailPayload
+  type ResendEmailPayload,
+  type ResetPasswordPayload,
+  type ConfirmResetPasswordPayload
 } from './auth.api.types';
 
 export const authApiInjections = authApi.injectEndpoints({
@@ -49,6 +51,22 @@ export const authApiInjections = authApi.injectEndpoints({
       query: () => ({
         url: 'auth/users/me/'
       })
+    }),
+    resetPassword: build.mutation<void, ResetPasswordPayload>({
+      query: (payload) => ({
+        url: 'auth/users/reset_password/',
+        method: 'POST',
+        body: payload
+      }),
+      transformErrorResponse: (response) => response.data
+    }),
+    confirmResetPassword: build.mutation<void, ConfirmResetPasswordPayload>({
+      query: (payload) => ({
+        url: '/auth/users/reset_password_confirm/',
+        method: 'POST',
+        body: payload
+      }),
+      transformErrorResponse: (response) => response.data
     })
   })
 });
@@ -58,5 +76,7 @@ export const {
   useActivateEmailMutation,
   useResendActivationEmailMutation,
   useCreateTokensMutation,
-  useFetchUserQuery
+  useFetchUserQuery,
+  useResetPasswordMutation,
+  useConfirmResetPasswordMutation
 } = authApiInjections;

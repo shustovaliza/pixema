@@ -9,13 +9,13 @@ import { useResendActivationEmailMutation } from '~/store/api/authApi/auth.api.i
 
 import FormStyles from '../forms.module.scss';
 import { type FormState } from '../forms.types';
-import { getFormErrorsForResendActivationEmailForm } from '../forms.utils';
+import { getErrorsForFormsWithOnlyEmailInput } from '../forms.utils';
 
 export const ResendActivationEmailForm = () => {
   const [email, setEmail] = useState('');
   const [isDirty, setIsDirty] = useState(false);
   const formError = useMemo(
-    () => getFormErrorsForResendActivationEmailForm(email),
+    () => getErrorsForFormsWithOnlyEmailInput(email),
     [email]
   );
 

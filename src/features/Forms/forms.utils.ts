@@ -61,7 +61,7 @@ export function getFormErrorsForSignIn(formValues: FormState): FormErrors {
   return errors;
 }
 
-export function getFormErrorsForResendActivationEmailForm(
+export function getErrorsForFormsWithOnlyEmailInput(
   email: FormState['email']
 ): FormErrors['email'] {
   let error: FormErrors['email'];
@@ -71,4 +71,20 @@ export function getFormErrorsForResendActivationEmailForm(
   }
 
   return error;
+}
+
+export function getFormErrorsForConfirmResetPassword(
+  formValues: FormState
+): FormErrors {
+  const errors: FormErrors = {};
+
+  if (!isValidPassword(formValues.password)) {
+    errors.password = 'Пароль должен содержать больше четырех символов';
+  }
+
+  if (formValues.password !== formValues.confirmPassword) {
+    errors.confirmPassword = 'Пароль не совпадает';
+  }
+
+  return errors;
 }
