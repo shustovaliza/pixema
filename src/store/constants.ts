@@ -7,5 +7,6 @@ export const getAccessToken = () => {
 
 export const localStorageNames = {
   accessToken: '@pixema/access-token',
-  refreshToken: '@pixema/refresh-token'
+  refreshToken: '@pixema/refresh-token',
+  theme: '@pixema/theme'
 } as const;

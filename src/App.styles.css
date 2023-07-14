@@ -13,6 +13,16 @@
   --tertiary-colors-green: #00a340;
   --tertiary-colors-yellow: #f3a608;
   --tertiary-colors-orange: #f45d2d;
+  --button-text-white: #fff;
+}
+
+:root.light {
+  --background-colors-black: #fff;
+  --contextual-colors-white: #000;
+  --background-colors-dark: #e7e7e9;
+  --system-colors-secondary: #4d4e4f;
+  --contextual-colors-light: #9c9d9d;
+  --background-colors-graphite: #d3d3d3;
 }
 
 body {

@@ -52,7 +52,7 @@
 }
 
 .menuButton {
-  width: 56px;
+  min-width: 56px;
   height: 56px;
-  fill: var(--contextual-colors-white);
+  fill: var(--button-text-white);
 }

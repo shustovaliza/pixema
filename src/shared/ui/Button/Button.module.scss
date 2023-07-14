@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--contextual-colors-white);
+  color: var(--button-text-white);
   font-size: 16px;
   font-family: 'Exo 2';
   font-weight: 600;
@@ -29,7 +29,7 @@
 
 .primary {
   background-color: var(--system-colors-primary);
-  color: var(--contextual-colors-white);
+  color: var(--button-text-white);
 
   &:hover:not(:disabled) {
     background-color: var(--system-colors-primary-2);

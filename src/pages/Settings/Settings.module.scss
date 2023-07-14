@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.dataWrap {
+  h2 {
+    color: var(--contextual-colors-white);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.data {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+  background-color: var(--background-colors-dark);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--contextual-colors-white);
+
+  Button {
+    height: 50px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    span {
+      &:last-child {
+        color: var(--contextual-colors-light);
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.inputWrap {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 48%;
+}
+
+.input {
+  box-sizing: border-box;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  background: var(--background-colors-graphite);
+  border-radius: 10px;
+}
+
+.deleteUserButton {
+  background-color: red;
+
+  &:hover:not(:disabled) {
+    background-color: rgb(252, 65, 65);
+  }
+}

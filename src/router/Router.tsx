@@ -9,10 +9,12 @@ import { EmailConfirmationPage } from '~/pages/EmailConfirmation/EmailConfirmati
 import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
 import { ResetPasswordPage } from '~/pages/ResetPassword/ResetPassword';
+import { SettingsPage } from '~/pages/Settings/Settings';
 import { SignInPage } from '~/pages/SignIn/SignIn';
 import { SignUpPage } from '~/pages/SignUp/SignUp';
 import { authApiInjections } from '~/store/api/authApi/auth.api.injections';
 import { selectTokens } from '~/store/slices/authSlice';
+import { selectTheme } from '~/store/slices/themeSlice';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
 
 const routerSchema = createBrowserRouter([
@@ -22,9 +24,10 @@ const routerSchema = createBrowserRouter([
     children: [
       { index: true, Component: MainPage },
       {
-        path: 'movie/:id',
+        path: '/movie/:id',
         Component: MoviePage
-      }
+      },
+      { path: '/settings', Component: SettingsPage }
     ]
   },
   {
@@ -49,6 +52,13 @@ const routerSchema = createBrowserRouter([
 export const AppRouter = () => {
   const tokens = useAppSelector(selectTokens);
   const dispatch = useAppDispatch();
+  const isLightTheme = useAppSelector(selectTheme);
+
+  useEffect(() => {
+    document
+      .querySelector(':root')
+      ?.classList[isLightTheme ? 'add' : 'remove']('light');
+  }, [isLightTheme]);
 
   useEffect(() => {
     if (tokens) {

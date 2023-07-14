@@ -49,6 +49,20 @@ export const authSlice = createSlice({
         state.user = payload;
       }
     );
+    builder.addMatcher(
+      authApiInjections.endpoints.changeUsername.matchFulfilled,
+      (state, { payload }) => {
+        state.user = payload;
+      }
+    );
+    builder.addMatcher(
+      authApiInjections.endpoints.deleteUser.matchFulfilled,
+      (state) => {
+        state.user = undefined;
+        localStorage.removeItem(localStorageNames.accessToken);
+        localStorage.removeItem(localStorageNames.refreshToken);
+      }
+    );
   }
 });
 

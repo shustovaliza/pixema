@@ -67,6 +67,26 @@ export const authApiInjections = authApi.injectEndpoints({
         body: payload
       }),
       transformErrorResponse: (response) => response.data
+    }),
+    changeUsername: build.mutation<User, User['username']>({
+      query: (payload) => ({
+        url: 'auth/users/me/',
+        method: 'PATCH',
+        body: {
+          username: payload
+        }
+      }),
+      transformErrorResponse: (response) => response.data
+    }),
+    deleteUser: build.mutation<void, string>({
+      query: (payload) => ({
+        url: 'auth/users/me/',
+        method: 'DELETE',
+        body: {
+          current_password: payload
+        }
+      }),
+      transformErrorResponse: (response) => response.data
     })
   })
 });
@@ -78,5 +98,7 @@ export const {
   useCreateTokensMutation,
   useFetchUserQuery,
   useResetPasswordMutation,
-  useConfirmResetPasswordMutation
+  useConfirmResetPasswordMutation,
+  useChangeUsernameMutation,
+  useDeleteUserMutation
 } = authApiInjections;

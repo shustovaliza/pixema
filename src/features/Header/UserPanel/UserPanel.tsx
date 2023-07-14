@@ -8,6 +8,7 @@ import { ReactComponent as UserIcon } from '~/assets/icons/user.svg';
 import { type User } from '~/entities/user';
 import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
+import { authApi } from '~/store/api/authApi/auth.api';
 import { userActions } from '~/store/slices/authSlice';
 import { useAppDispatch } from '~/store/store.types';
 
@@ -35,6 +36,7 @@ const UserActionsPanel = ({ isOpen }: { isOpen: boolean }) => {
         text={'Выйти'}
         onClick={() => {
           dispatch(userActions.logout());
+          dispatch(authApi.util.resetApiState());
         }}
       />
     </div>
