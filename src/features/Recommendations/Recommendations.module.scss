@@ -1,0 +1,16 @@
+.swiperWrap {
+  :global(.swiper-slide) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  :global(.swiper-button-prev) {
+    color: var(--system-colors-primary);
+  }
+
+  :global(.swiper-button-next) {
+    color: var(--system-colors-primary);
+  }
+}

@@ -45,6 +45,13 @@
   }
 }
 
+.secondaryActive {
+  background-color: var(--background-colors-graphite);
+  .icon > svg {
+    fill: var(--system-colors-primary);
+  }
+}
+
 .iconButton {
   background: inherit;
 }

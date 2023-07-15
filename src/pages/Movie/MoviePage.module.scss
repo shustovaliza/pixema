@@ -5,10 +5,111 @@
 
 .container {
   color: var(--contextual-colors-white);
-  font-size: 16px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 42px;
+}
 
-  p {
-    width: 100%;
+.imageWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 266px;
+
+  Button {
+    height: 56px;
+    fill: currentColor;
   }
+}
+
+.image {
+  width: 266px;
+  height: 376px;
+
+  img {
+    width: 266px;
+    height: 100%;
+    border-radius: 20px;
+  }
+}
+
+.content {
+  h1 {
+    margin: 0px;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 60px;
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  table {
+    margin-top: 40px;
+    margin-bottom: 56px;
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      tr {
+        td {
+          vertical-align: top;
+
+          &:first-child {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.genres {
+  color: var(--contextual-colors-light);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.ratings {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+
+  div {
+    padding: 2px 8px;
+    border-radius: 6px;
+    color: var(--button-text-white);
+    background: var(--system-colors-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .imdbRating svg {
+    fill: currentColor;
+  }
+
+  .kpRating {
+    background: var(--tertiary-colors-green);
+  }
+}
+
+.description {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.recommendatiosWrap {
+  width: calc(100vw - 400px);
+  margin-bottom: 64px;
 }

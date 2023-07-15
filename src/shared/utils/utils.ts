@@ -5,7 +5,7 @@ export function dateFormatter(date: string) {
     month: 'long',
     day: 'numeric'
   };
-  return newDate.toLocaleString('en-US', options);
+  return newDate.toLocaleString('ru', options);
 }
 
 export const isItOnTheMainPage = () => {
@@ -13,4 +13,8 @@ export const isItOnTheMainPage = () => {
     window.location.pathname === '/' ||
     window.location.pathname.includes('?page=')
   );
+};
+
+export const nameFormatter = (name: string) => {
+  return name[0].toUpperCase() + name.slice(1);
 };

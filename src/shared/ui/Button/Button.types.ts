@@ -1,7 +1,8 @@
 export const ButtonAppearance = {
   IconButton: 'iconButton',
   Primary: 'primary',
-  Secondary: 'secondary'
+  Secondary: 'secondary',
+  SecondaryActive: 'secondaryActive'
 } as const;
 
 export type ButtonAppearances =

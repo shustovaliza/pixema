@@ -6,7 +6,6 @@
   border-radius: 10px;
   justify-content: space-between;
   box-sizing: border-box;
-  position: relative;
 
   input {
     display: block;
@@ -44,12 +43,5 @@
         color: var(--contextual-colors-light);
       }
     }
-  }
-
-  Button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    fill: var(--system-colors-secondary);
   }
 }

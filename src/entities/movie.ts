@@ -30,7 +30,7 @@ interface Person {
   enProfession: string;
 }
 
-interface LinkedMovie {
+export interface LinkedMovie {
   id: number;
   name: string;
   enName: string;
