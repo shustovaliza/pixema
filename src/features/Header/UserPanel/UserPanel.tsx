@@ -56,10 +56,12 @@ export const UserPanel = ({ user }: { user?: User }) => {
         className={usernameStyles.container}
         onClick={toggleActionsPanel}
       >
-        <div className={usernameStyles.initials}>
-          {getInitials(user.username)}
+        <div className={usernameStyles.nameAndInitialsWrap}>
+          <div className={usernameStyles.initials}>
+            {getInitials(user.username)}
+          </div>
+          <div className={usernameStyles.name}>{`${user.username}`}</div>
         </div>
-        <div className={usernameStyles.name}>{`${user.username}`}</div>
         <Button
           appearance={ButtonAppearance.IconButton}
           icon={<ArrowDown />}
@@ -72,8 +74,10 @@ export const UserPanel = ({ user }: { user?: User }) => {
       className={usernameStyles.container}
       onClick={() => navigate('/sign-in')}
     >
-      <div className={usernameStyles.initials}>{<UserIcon />}</div>
-      <div className={usernameStyles.name}>{'Войти'}</div>
+      <div className={usernameStyles.nameAndInitialsWrap}>
+        <div className={usernameStyles.initials}>{<UserIcon />}</div>
+        <div className={usernameStyles.name}>{'Войти'}</div>
+      </div>
       <Button
         appearance={ButtonAppearance.IconButton}
         icon={<ArrowRight />}

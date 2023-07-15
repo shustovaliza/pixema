@@ -21,6 +21,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
           <p>{`${movie.genres[0].name}`}</p>
         )}
       </div>
+      <div className={movieCardStyles.rating}>{movie.rating.kp.toFixed(1)}</div>
     </div>
   );
 };

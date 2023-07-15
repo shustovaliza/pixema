@@ -7,6 +7,7 @@
     position: fixed;
     top: 0px;
     left: 0px;
+    z-index: 2;
   }
 
   main {
@@ -14,5 +15,6 @@
     box-sizing: border-box;
     width: 100%;
     padding: 0 40px;
+    z-index: 1;
   }
 }

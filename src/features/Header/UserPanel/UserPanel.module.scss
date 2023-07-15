@@ -1,11 +1,13 @@
 .container {
   background-color: inherit;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
   color: var(--contextual-colors-white);
   cursor: pointer;
   position: relative;
+  min-width: 200px;
+  gap: 20px;
   Button {
     fill: var(--contextual-colors-light);
   }
@@ -44,7 +46,7 @@
 }
 
 .userActionsContainer {
-  min-width: 230px;
+  min-width: 200px;
   height: 112px;
   background-color: var(--background-colors-graphite);
   border-radius: 10px;
@@ -54,7 +56,7 @@
   opacity: 0;
   transform: scale(0.8);
   transition: 0.4s ease-in-out;
-  z-index: 2;
+  z-index: 3;
 
   &[data-open='true'] {
     visibility: visible;
@@ -79,4 +81,10 @@
       border-radius: 10px 10px 0px 0px;
     }
   }
+}
+
+.nameAndInitialsWrap {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }

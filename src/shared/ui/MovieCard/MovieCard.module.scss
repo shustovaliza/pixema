@@ -1,5 +1,6 @@
 .container {
   width: 266px;
+  position: relative;
 }
 
 .imageWrap {
@@ -31,4 +32,17 @@
     color: var(--contextual-colors-light);
     font-weight: 500;
   }
+}
+
+.rating {
+  color: var(--button-text-white);
+  position: absolute;
+  padding: 2px 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  border-radius: 6px;
+  background: var(--tertiary-colors-green);
+  top: 20px;
+  left: 20px;
 }
