@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { ReactComponent as FavoritesIcon } from '~/assets/icons/Favorites.svg';
 import { ReactComponent as ImdbIcon } from '~/assets/icons/imdb.svg';
@@ -50,7 +50,16 @@ export const MoviePage = () => {
         </div>
         <div className={moviePageStyles.content}>
           <div className={moviePageStyles.genres}>
-            {data.genres.map((genre) => nameFormatter(genre.name)).join(' • ')}
+            {data.genres.map((genre) => {
+              return (
+                <Link
+                  to={`/?genres.name=${genre.name}`}
+                  key={genre.name}
+                >
+                  {`${nameFormatter(genre.name)} • `}
+                </Link>
+              );
+            })}
           </div>
           <h1>{data.name}</h1>
           <div className={moviePageStyles.ratings}>

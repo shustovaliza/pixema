@@ -14,6 +14,7 @@ interface FetchMoviesPayload {
   page?: number;
   limit?: number;
   year?: number;
+  'genres.name'?: string;
 }
 
 export const moviesApiInjections = moviesApi.injectEndpoints({

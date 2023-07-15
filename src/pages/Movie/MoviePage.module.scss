@@ -70,10 +70,17 @@
 }
 
 .genres {
-  color: var(--contextual-colors-light);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+
+  a {
+    color: var(--contextual-colors-light);
+
+    &:hover {
+      color: var(--system-colors-primary);
+    }
+  }
 }
 
 .ratings {

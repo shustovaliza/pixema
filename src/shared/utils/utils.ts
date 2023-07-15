@@ -8,13 +8,6 @@ export function dateFormatter(date: string) {
   return newDate.toLocaleString('ru', options);
 }
 
-export const isItOnTheMainPage = () => {
-  return (
-    window.location.pathname === '/' ||
-    window.location.pathname.includes('?page=')
-  );
-};
-
 export const nameFormatter = (name: string) => {
   return name[0].toUpperCase() + name.slice(1);
 };
