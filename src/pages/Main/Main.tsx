@@ -33,6 +33,7 @@ export const MainPage = () => {
           ))}
       </div>
       <Button
+        className={mainPageStyles.showMoreButton}
         disabled={status === 'pending'}
         text={status === 'pending' ? 'Загрузка...' : 'Показать больше'}
         appearance={ButtonAppearance.Secondary}

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Link, useParams } from 'react-router-dom';
 
 import { ReactComponent as FavoritesIcon } from '~/assets/icons/Favorites.svg';
@@ -9,13 +7,19 @@ import { Button } from '~/shared/ui/Button/Button';
 import { ButtonAppearance } from '~/shared/ui/Button/Button.types';
 import { dateFormatter, nameFormatter } from '~/shared/utils/utils';
 import { useGetMovieQuery } from '~/store/api/moviesApi/movies.api.injections';
+import { moviesActions } from '~/store/slices/moviesSlice';
+import { useAppDispatch, useAppSelector } from '~/store/store.types';
 
 import moviePageStyles from './MoviePage.module.scss';
 
 export const MoviePage = () => {
   const { id } = useParams<'id'>();
   const { data, status } = useGetMovieQuery({ id: id || '' });
-  const [isFavorite, setIsFavorite] = useState(false);
+
+  const isFavorite = useAppSelector(
+    (state) => id && state.movies.favoriteMovies.includes(+id)
+  );
+  const dispatch = useAppDispatch();
 
   if (status === 'pending') {
     return <div className={moviePageStyles.error}>Загрузка...</div>;
@@ -45,7 +49,9 @@ export const MoviePage = () => {
             }
             icon={<FavoritesIcon />}
             shouldFitContainer
-            onClick={() => setIsFavorite(!isFavorite)}
+            onClick={() =>
+              id && dispatch(moviesActions.addMovieToFavorites(+id))
+            }
           />
         </div>
         <div className={moviePageStyles.content}>

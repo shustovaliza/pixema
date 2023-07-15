@@ -9,17 +9,6 @@
     width: 100%;
     margin-bottom: 40px;
   }
-
-  Button {
-    width: 171px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 40px;
-    margin-top: 64px;
-    margin-bottom: 40px;
-  }
 }
 
 .cardsWrap {
@@ -33,4 +22,15 @@
   font-size: 22px;
   color: var(--contextual-colors-white);
   text-align: center;
+}
+
+.showMoreButton {
+  width: 171px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  margin-top: 64px;
+  margin-bottom: 40px;
 }
