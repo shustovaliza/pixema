@@ -25,7 +25,7 @@ export const Navlinks = (): Navlink[] => {
     },
     {
       path: '/favorites',
-      title: 'Моё',
+      title: 'Избранное',
       img: <FavoritesIcon />
     },
     {

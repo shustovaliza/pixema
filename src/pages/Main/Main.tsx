@@ -13,9 +13,9 @@ export const MainPage = () => {
   const page = +(searchParameters.get('page') || 1);
   const genre = searchParameters.get('genres.name') || undefined;
   const { data, status } = useGetMoviesQuery({
-    page: page,
-    limit: 12,
-    'genres.name': genre
+    page: `${page}`,
+    limit: '12',
+    genres: genre
   });
 
   return status === 'rejected' ? (

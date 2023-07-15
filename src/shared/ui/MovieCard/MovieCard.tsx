@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as FavoritesIcon } from '~/assets/icons/Favorites.svg';
 import { type LinkedMovie, type Movie } from '~/entities/movie';
 import { nameFormatter } from '~/shared/utils/utils';
+import { moviesApi } from '~/store/api/moviesApi/movies.api';
 import { moviesActions } from '~/store/slices/moviesSlice';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
 
@@ -36,7 +37,10 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
           className={movieCardStyles.addMovieToFavoritesButton}
           appearance={ButtonAppearance.SecondaryActive}
           icon={<FavoritesIcon />}
-          onClick={() => dispatch(moviesActions.addMovieToFavorites(movie.id))}
+          onClick={() => {
+            dispatch(moviesActions.addMovieToFavorites(movie.id));
+            dispatch(moviesApi.util.resetApiState());
+          }}
         />
       )}
     </div>

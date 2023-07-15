@@ -6,6 +6,7 @@ import { AuthLayout } from '~/layouts/AuthLayout/AuthLayout';
 import { MainLayout } from '~/layouts/MainLayout/MainLayout';
 import { ConfirmResetPasswordPage } from '~/pages/ConfirmResetPassword/ConfirmResetPassword';
 import { EmailConfirmationPage } from '~/pages/EmailConfirmation/EmailConfirmation';
+import { FavoritesPage } from '~/pages/Favorites/Favorites';
 import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
 import { ResetPasswordPage } from '~/pages/ResetPassword/ResetPassword';
@@ -27,7 +28,8 @@ const routerSchema = createBrowserRouter([
         path: '/movie/:id',
         Component: MoviePage
       },
-      { path: '/settings', Component: SettingsPage }
+      { path: '/settings', Component: SettingsPage },
+      { path: '/favorites', Component: FavoritesPage }
     ]
   },
   {

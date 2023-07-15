@@ -11,20 +11,47 @@ interface FetchMoviesResponse {
 }
 
 interface FetchMoviesPayload {
-  page?: number;
-  limit?: number;
-  year?: number;
-  'genres.name'?: string;
+  page?: string;
+  limit?: string;
+  genres?: string;
+  favoriteMoviesId?: string[];
 }
 
 export const moviesApiInjections = moviesApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
     getMovies: build.query<FetchMoviesResponse, FetchMoviesPayload>({
-      query: (payload: FetchMoviesPayload) => ({
-        url: `v1.3/movie`,
-        params: payload
-      }),
+      query: ({
+        page,
+        limit,
+        genres,
+        favoriteMoviesId
+      }: FetchMoviesPayload) => {
+        const parameters = new URLSearchParams();
+
+        if (page) {
+          parameters.append('page', page);
+        }
+
+        if (limit) {
+          parameters.append('limit', limit);
+        }
+
+        if (genres) {
+          parameters.append('genres.name', genres);
+        }
+
+        if (favoriteMoviesId) {
+          for (const id of favoriteMoviesId) {
+            parameters.append('id', id);
+          }
+        }
+
+        return {
+          url: `v1.3/movie`,
+          params: parameters
+        };
+      },
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
