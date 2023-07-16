@@ -10,6 +10,7 @@ import { FavoritesPage } from '~/pages/Favorites/Favorites';
 import { MainPage } from '~/pages/Main/Main';
 import { MoviePage } from '~/pages/Movie/MoviePage';
 import { ResetPasswordPage } from '~/pages/ResetPassword/ResetPassword';
+import { SearchPage } from '~/pages/Search/Search';
 import { SettingsPage } from '~/pages/Settings/Settings';
 import { SignInPage } from '~/pages/SignIn/SignIn';
 import { SignUpPage } from '~/pages/SignUp/SignUp';
@@ -29,7 +30,8 @@ const routerSchema = createBrowserRouter([
         Component: MoviePage
       },
       { path: '/settings', Component: SettingsPage },
-      { path: '/favorites', Component: FavoritesPage }
+      { path: '/favorites', Component: FavoritesPage },
+      { path: '/search', Component: SearchPage }
     ]
   },
   {

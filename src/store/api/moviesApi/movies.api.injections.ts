@@ -1,3 +1,4 @@
+import { type FoundMovie } from '~/entities/foundMovie';
 import { type Movie } from '~/entities/movie';
 
 import { moviesApi as moviesApi } from './movies.api';
@@ -15,6 +16,19 @@ interface FetchMoviesPayload {
   limit?: string;
   genres?: string;
   favoriteMoviesId?: string[];
+}
+
+interface SearchMoviesResponse {
+  docs: FoundMovie[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+
+interface SearchMoviesPayload {
+  query?: string;
+  limit?: string;
 }
 
 export const moviesApiInjections = moviesApi.injectEndpoints({
@@ -67,8 +81,27 @@ export const moviesApiInjections = moviesApi.injectEndpoints({
       query: ({ id }) => ({
         url: `v1.3/movie/${id}`
       })
+    }),
+    searchMovies: build.query<SearchMoviesResponse, SearchMoviesPayload>({
+      query: ({ query, limit }: { query?: string; limit?: string }) => {
+        const parameters = new URLSearchParams();
+
+        if (query) {
+          parameters.append('query', query);
+        }
+
+        if (limit) {
+          parameters.append('limit', limit);
+        }
+
+        return {
+          url: `/v1.2/movie/search`,
+          params: parameters
+        };
+      }
     })
   })
 });
 
-export const { useGetMoviesQuery, useGetMovieQuery } = moviesApiInjections;
+export const { useGetMoviesQuery, useGetMovieQuery, useSearchMoviesQuery } =
+  moviesApiInjections;

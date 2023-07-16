@@ -1,0 +1,16 @@
+.container {
+  color: var(--contextual-colors-white);
+  margin-bottom: 40px;
+}
+
+.cardsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.error {
+  font-size: 22px;
+  color: var(--contextual-colors-white);
+}
