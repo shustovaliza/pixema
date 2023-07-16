@@ -136,7 +136,7 @@ export interface Movie {
   movieLength: number;
   ratingMpaa: string;
   ageRating: number;
-  poster: ShortImage;
+  poster: ShortImage | null;
   backdrop: ShortImage;
   genres: ItemName[];
   countries: ItemName[];

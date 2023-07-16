@@ -21,13 +21,19 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
   return (
     <div className={movieCardStyles.container}>
       <div className={movieCardStyles.imageWrap}>
-        <img
-          src={
-            movie.poster.url ??
-            'https://yastatic.net/s3/kinopoisk-frontend/special-static-www/release-608/dist/branding/dist/static/images/icons/icon-kp.png'
-          }
-          alt={movie.name}
-        />
+        {movie.poster ? (
+          <img
+            src={movie.poster.url}
+            alt={movie.name}
+          />
+        ) : (
+          <img
+            src={
+              'https://yastatic.net/s3/kinopoisk-frontend/special-static-www/release-608/dist/branding/dist/static/images/icons/icon-kp.png'
+            }
+            alt={movie.name}
+          />
+        )}
       </div>
       <div className={movieCardStyles.text}>
         <Link to={`/movie/${movie.id}`}>{movie.name}</Link>

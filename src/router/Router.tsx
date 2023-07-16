@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { AuthLayout } from '~/layouts/AuthLayout/AuthLayout';
 import { MainLayout } from '~/layouts/MainLayout/MainLayout';
+import { BestMoviesPage } from '~/pages/BestMovies/BestMovies';
 import { ConfirmResetPasswordPage } from '~/pages/ConfirmResetPassword/ConfirmResetPassword';
 import { EmailConfirmationPage } from '~/pages/EmailConfirmation/EmailConfirmation';
 import { FavoritesPage } from '~/pages/Favorites/Favorites';
@@ -31,7 +32,8 @@ const routerSchema = createBrowserRouter([
       },
       { path: '/settings', Component: SettingsPage },
       { path: '/favorites', Component: FavoritesPage },
-      { path: '/search', Component: SearchPage }
+      { path: '/search', Component: SearchPage },
+      { path: '/best-movies', Component: BestMoviesPage }
     ]
   },
   {

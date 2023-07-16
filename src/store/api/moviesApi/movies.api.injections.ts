@@ -16,6 +16,8 @@ interface FetchMoviesPayload {
   limit?: string;
   genres?: string;
   favoriteMoviesId?: string[];
+  sortField?: string;
+  sortType?: '1' | '-1';
 }
 
 interface SearchMoviesResponse {
@@ -39,7 +41,9 @@ export const moviesApiInjections = moviesApi.injectEndpoints({
         page,
         limit,
         genres,
-        favoriteMoviesId
+        favoriteMoviesId,
+        sortField,
+        sortType
       }: FetchMoviesPayload) => {
         const parameters = new URLSearchParams();
 
@@ -53,6 +57,14 @@ export const moviesApiInjections = moviesApi.injectEndpoints({
 
         if (genres) {
           parameters.append('genres.name', genres);
+        }
+
+        if (sortField) {
+          parameters.append('sortField', sortField);
+        }
+
+        if (sortType) {
+          parameters.append('sortField', sortType);
         }
 
         if (favoriteMoviesId) {

@@ -36,10 +36,19 @@ export const MoviePage = () => {
       <div className={moviePageStyles.container}>
         <div className={moviePageStyles.imageWrap}>
           <div className={moviePageStyles.image}>
-            <img
-              src={data.poster.url}
-              alt={data.name}
-            />
+            {data.poster ? (
+              <img
+                src={data.poster.url}
+                alt={data.name}
+              />
+            ) : (
+              <img
+                src={
+                  'https://yastatic.net/s3/kinopoisk-frontend/special-static-www/release-608/dist/branding/dist/static/images/icons/icon-kp.png'
+                }
+                alt={data.name}
+              />
+            )}
           </div>
           <Button
             appearance={

@@ -11,7 +11,7 @@ export const SearchPage = () => {
 
   const { data, status } = useSearchMoviesQuery({
     query: searchQuery,
-    limit: '8'
+    limit: '12'
   });
 
   if (status === 'rejected') {

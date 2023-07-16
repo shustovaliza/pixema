@@ -19,8 +19,8 @@ export const Navlinks = (): Navlink[] => {
       img: <HomeIcon />
     },
     {
-      path: '/trends',
-      title: 'Тренды',
+      path: '/best-movies',
+      title: 'Лучшее',
       img: <TrendsIcon />
     },
     {
