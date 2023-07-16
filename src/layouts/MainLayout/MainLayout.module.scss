@@ -18,3 +18,11 @@
     z-index: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    main {
+      padding: 0px 15px;
+    }
+  }
+}

@@ -4,3 +4,9 @@
     fill: var(--contextual-colors-white);
   }
 }
+
+@media (max-width: 768px) {
+  .logoWrap {
+    display: none;
+  }
+}

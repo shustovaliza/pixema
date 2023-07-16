@@ -115,7 +115,7 @@ export const MoviePage = () => {
                 </td>
               </tr>
               <tr>
-                <td>{'Производственные компании'}</td>
+                <td>{'Производство'}</td>
                 <td>
                   {data.productionCompanies
                     .map((company) => company.name)

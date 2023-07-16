@@ -120,3 +120,30 @@
   width: calc(100vw - 400px);
   margin-bottom: 64px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .content {
+    table {
+      tbody {
+        gap: 10px;
+        tr {
+          td {
+            &:first-child {
+              width: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .recommendatiosWrap {
+    width: 90vw;
+  }
+}

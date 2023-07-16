@@ -1,53 +1,60 @@
 .form {
-    width: 35%;
-    box-sizing: border-box;
-    padding: 40px;
-    border-radius: 10px;
-    background: var(--background-colors-dark);
-    color: var(--contextual-colors-white);
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  width: 35%;
+  box-sizing: border-box;
+  padding: 40px;
+  border-radius: 10px;
+  background: var(--background-colors-dark);
+  color: var(--contextual-colors-white);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 
-    h1 {
-        padding: 0;
-        margin: 0;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 36px;
-    }
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+  }
 
-    Button {
-        height: 56px;
-    }
+  Button {
+    height: 56px;
+  }
 }
 
 .inputsWrap {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-    a {
-        color: var(--system-colors-secondary);
-        width: fit-content;
+  a {
+    color: var(--system-colors-secondary);
+    width: fit-content;
 
-        &:hover {
-            color: var(--system-colors-primary);
-        }
+    &:hover {
+      color: var(--system-colors-primary);
     }
+  }
 }
 
 .link {
-    text-align: center;
-    color: var(--system-colors-secondary);
+  text-align: center;
+  color: var(--system-colors-secondary);
 
-    a {
-        color: var(--system-colors-primary);
-    }
+  a {
+    color: var(--system-colors-primary);
+  }
 }
 
 .errorMessage {
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 75%;
+    padding: 40px 20px;
+  }
 }

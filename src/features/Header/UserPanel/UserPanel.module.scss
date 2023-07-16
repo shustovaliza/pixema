@@ -10,6 +10,9 @@
   gap: 20px;
   Button {
     fill: var(--contextual-colors-light);
+    padding: 0;
+    width: 24px;
+    height: 24px;
   }
 
   &:hover {
@@ -87,4 +90,15 @@
   display: flex;
   gap: 20px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-width: 140px;
+    gap: 0px;
+  }
+
+  .nameAndInitialsWrap {
+    gap: 10px;
+  }
 }

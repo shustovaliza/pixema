@@ -73,3 +73,16 @@
     background-color: rgb(252, 65, 65);
   }
 }
+
+@media (max-width: 768px) {
+  .data {
+    padding: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .inputWrap {
+    width: 300px;
+  }
+}
